@@ -48,7 +48,7 @@ def create_item(request):
 
 # class based view for create
 class CreateItem(CreateView):
-    model = Item;
+    model = Item
     fields = ['item_name', 'item_desc', 'item_price', 'item_image']
     template_name = 'food/item-form.html'
 
