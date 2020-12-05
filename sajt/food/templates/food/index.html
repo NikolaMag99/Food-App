@@ -17,15 +17,23 @@
 
       <div class="row">
         <div class="col-md-3 offset-md-2">
+            <br>
             <img class="card" height="250px" width="450px" src="{{ item.item_image }}">
             <br>
         </div>
         <div class="col-md-4" style="margin-left: 50px">
-            <h3>{{  item.item_name }}</h3>
-            <h5>{{  item.item_decs }}</h5>
-            <h6>${{  item.item_price}}</h6>
+            <br>
+            <h3>{{ item.item_name }}</h3>
+            <hr>
+            <h5>{{ item.item_desc }}</h5>
+            <h6>${{ item.item_price }}</h6>
+            <h6>{{ item.user_name }}</h6>
         </div>
+
         <div class="col-md-2">
+                <br>
+                <br>
+                <br>
             <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
             <a href="{% url 'food:update_item' item.id %}" class="btn btn-primary">Update</a>
         </div>
