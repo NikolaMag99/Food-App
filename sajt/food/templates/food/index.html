@@ -35,7 +35,9 @@
                 <br>
                 <br>
             <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
-            <a href="{% url 'food:update_item' item.id %}" class="btn btn-primary">Update</a>
+            {% if item.user_name.username == request.user.username %}
+                <a href="{% url 'food:update_item' item.id %}" class="btn btn-primary">Update</a>
+            {% endif %}
         </div>
       </div>
 

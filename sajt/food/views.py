@@ -57,16 +57,26 @@ class CreateItem(CreateView):
 
         return super().form_valid(form)
 
+def user_valid(self,form):
+    form.instance.user_name = self.request.user
+
+    return 
 
 def update_item(request, id):
     item = Item.objects.get(id=id)
-    form = ItemForm(request.POST or None, instance=item)
+    
+    if item.user_name.username == request.user.username:
+        form = ItemForm(request.POST or None, instance=item)
 
-    if form.is_valid():
-        form.save()
+        if form.is_valid():
+            form.save()
+            return redirect('food:index')
+
+        return render(request, 'food/item-form.html', {'form':form, 'item':item})
+    else:
+        print(item.user_name)
+        print(request.user.username)
         return redirect('food:index')
-
-    return render(request, 'food/item-form.html', {'form':form, 'item':item})
 
 def delete_item(request, id):
     item = Item.objects.get(id=id)
