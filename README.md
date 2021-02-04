@@ -1,3 +1,3 @@
 # FoodApp
 
-Web application about food, built using Django.
+Web application about fast food, built using Django.
